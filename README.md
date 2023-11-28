@@ -14,6 +14,10 @@
 |encrypted_password|string |           |    V     |        |
 |birthday          | date  |           |    V     |        |
 
+### association
+- has_many :items
+- has_one :purchase
+
 
 ## items table
 
@@ -30,7 +34,10 @@
 |price                |integer   |           |    V     |        |
 |user                 |references|foreign_key|    V     |        |
 
-- image must be attached by ActiveStorage.
+### association
+- has_one :purchase
+- has_one_attached :image
+
 
 ## purchases table
 |      column      |   type   |    key    | not_null | unique |
@@ -38,6 +45,11 @@
 |id                |integer   |primary_key|    V     |   V    |
 |user              |references|foreign_key|    V     |        |
 |item              |references|foreign_key|    V     |        |
+
+### association
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 
 ## addresses table
@@ -50,5 +62,8 @@
 |municipality      |string    |           |    V     |        |
 |street_address    |string    |           |    V     |        |
 |building          |string    |           |          |        |
-|phone_number      |integer   |           |    V     |        |
-|user              |references|foreign_key|    V     |        |
+|phone_number      |string    |           |    V     |        |
+|purchase          |references|foreign_key|    V     |        |
+
+### association
+- belongs_to :purchase
