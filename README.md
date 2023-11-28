@@ -33,16 +33,6 @@
 - image must be attached by ActiveStorage.
 
 
-## comments table
-
-|      column      |   type   |  key  | not_null | unique |
-|------------------|----------|-------|:--------:|:------:|
-|id                |integer   |primary|    V     |   V    |
-|content           |text      |       |    V     |        |
-|user_id           |references|foreign|    V     |        |
-|item_id           |references|foreign|    V     |        |
-
-
 ## addresses table
 
 |      column      |   type   |  key  | not_null | unique |
