@@ -16,7 +16,7 @@
 
 ### association
 - has_many :items
-- has_one :purchase
+- has_many :purchase
 
 
 ## items table
@@ -35,6 +35,7 @@
 |user                 |references|foreign_key|    V     |        |
 
 ### association
+- belongs_to :user
 - has_one :purchase
 - has_one_attached :image
 
