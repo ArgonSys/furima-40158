@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :price, presence: true, numericality: true
 
   belongs_to :user
-  extend ActiveHash::Associations::ActiveRecordExtentions
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
   belongs_to :shipping_cost_on
