@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1 }
   validates :condition_id, presence: true, numericality: { other_than: 1 }
-  validates :shipping_cost_on, presence: true, numericality: { other_than: 1 }
+  validates :shipping_cost_on_id, presence: true, numericality: { other_than: 1 }
   validates :prefecture_id, presence: true, numericality: { other_than: 1 }
   validates :days_to_shipping_id, presence: true, numericality: { other_than: 1 }
   validates :price, presence: true, numericality: true
