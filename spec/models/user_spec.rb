@@ -62,6 +62,12 @@ RSpec.describe '新規登録機能', type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Password は英数字混合で入力してください。')
     end
+    it 'passwordに全角文字が含まれる' do
+      @user.password += 'あいう'
+      @user.password_confirmation = @user.password
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Password は英数字混合で入力してください。')
+    end
     it 'password_confirmationがpasswordと合わない' do
       @user.password_confirmation += 'typo'
       @user.valid?
