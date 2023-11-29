@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
   validates :name, presence: true
   validates :description, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1 }
@@ -9,7 +11,6 @@ class Item < ApplicationRecord
   validates :price, presence: true, numericality: true
 
   belongs_to :user
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
   belongs_to :shipping_cost_on
