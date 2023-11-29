@@ -7,4 +7,12 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true, numerality: { other_than: 1 }
   validates :days_to_shipping_id, presence: true, numerality: { other_than: 1 }
   validates :price, presence: true, numerality: true
+
+  belongs_to :user
+  extend ActiveHash::Associations::ActiveRecordExtentions
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :shipping_cost_on
+  belongs_to :prefecture
+  belongs_to :days_to_shipping
 end
