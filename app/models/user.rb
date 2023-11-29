@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  REGFORMAT_KATAKANA = /\A[ア-ヶー]+\z/
-  REGFORMAT_JAPANESE = /\A[ぁ-んァ-ヶ一-龥々]+\z/
+  REGFORMAT_KATAKANA = /\A[ァ-ヶー]+\z/
+  REGFORMAT_JAPANESE = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/
   REGFORMAT_ALPHANUM = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   MESSAGE_INVALID_KATAKANA = 'にはカタカナを入力してください。'.freeze
   MESSAGE_INVALID_JAPANESE = 'には漢字・かな・カタカナが使えます。'.freeze
