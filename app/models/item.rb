@@ -16,4 +16,5 @@ class Item < ApplicationRecord
   belongs_to :shipping_cost_on
   belongs_to :prefecture
   belongs_to :days_to_shipping
+  has_one_attached :image
 end
