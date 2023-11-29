@@ -154,9 +154,3 @@ RSpec.describe '新規登録機能', type: :model do
     end
   end
 end
-
-RSpec.describe 'ログイン機能', type: :model do
-end
-
-RSpec.describe 'ログアウト機能', type: :model do
-end
