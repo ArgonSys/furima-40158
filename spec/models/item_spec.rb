@@ -6,7 +6,7 @@ RSpec.describe '商品登録機能', type: :model do
   end
   context '商品登録できるとき' do
     it '適切な name, description, category_id, condition_id, shipping_cost_on_id, prefecture_id,
-        days_to_shipping_id, price の入力があり、imageのattachとuserとの関連付けがある' do
+        days_to_shipping_id, price の入力があり、imageのattachとuserとのassociationがある' do
       expect(@item).to be_valid
     end
   end
