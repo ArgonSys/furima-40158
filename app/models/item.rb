@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
+  validates :image, presence: { message: 'must be attached' }
   validates :name, presence: true
   validates :description, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1 }
