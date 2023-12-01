@@ -1,6 +1,9 @@
 class PurchasesController < ApplicationController
-  before_action :set_item, only: [:index, :create]
-  before_action :set_key, only: [:index, :create]
+  before_action :authenticate_user!
+  before_action :set_item
+  before_action :seller_to_root
+  before_action :soldout_to_root
+  before_action :set_key
 
   def index
     @purchase = PurchaseAddress.new
@@ -18,6 +21,14 @@ class PurchasesController < ApplicationController
   end
 
   private
+
+  def seller_to_root
+    redirect_to root_path if current_user.id == @item.user.id
+  end
+
+  def soldout_to_root
+    redirect_to root_path if user_signed_in? && @item.purchase
+  end
 
   def purchase_params
     params.require(:purchase_address).permit(:postcode, :prefecture_id, :municipality, :street_address, :building, :phone_number)\
