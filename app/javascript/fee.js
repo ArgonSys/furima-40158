@@ -4,6 +4,8 @@ function fee() {
   const priceForm = document.getElementById("item-price");
   const feePrice = document.getElementById("add-tax-price");
   const profitPrice = document.getElementById("profit");
+  
+  if(priceForm == null) return null;
   priceForm.addEventListener("input", () => {
     const price = priceForm.value;
     const fee = Math.floor(price * FEE_RATE);
