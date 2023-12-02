@@ -14,14 +14,13 @@ function purchase () {
   
   chargeForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("chageform")
     payjp.createToken(numberElement).then( (response) => {
       if (!response.error){
       const token = response.id;
       const tokenObj = `<input value=${token} name=token type=hidden>`;
       chargeForm.insertAdjacentHTML("beforeend", tokenObj);
       }
-      
+
       numberElement.clear();
       expiryElement.clear();
       cvcElement.clear();
