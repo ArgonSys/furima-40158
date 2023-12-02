@@ -4,14 +4,16 @@ class PurchaseAddress
 
   REGEXP_POSTCODE = /\A\d{3}-\d{4}\z/
   REGEXP_PHONE_NUMBER = /\A\d{10,11}\z/
-  validates :postcode, presence: true, format: { with: REGEXP_POSTCODE }
-  validates :prefecture_id, presence: true, numericality: { other_than: 1 }
-  validates :municipality, presence: true
-  validates :street_address, presence: true
-  validates :phone_number, presence: true, format: { with: REGEXP_PHONE_NUMBER }
-  validates :user_id, presence: true, numericality: true
-  validates :item_id, presence: true, numericality: true
-  validates :token, presence: true
+  with_options presence: true do
+    validates :postcode, format: { with: REGEXP_POSTCODE }
+    validates :prefecture_id, numericality: { other_than: 1 }
+    validates :municipality
+    validates :street_address
+    validates :phone_number, format: { with: REGEXP_PHONE_NUMBER }
+    validates :user_id, numericality: true
+    validates :item_id, numericality: true
+    validates :token
+  end
 
   def save
     purchase = Purchase.create(user_id:, item_id:)
