@@ -27,7 +27,7 @@ class PurchasesController < ApplicationController
   end
 
   def soldout_to_root
-    redirect_to root_path if user_signed_in? && @item.purchase
+    redirect_to root_path if @item.purchase.present?
   end
 
   def purchase_params
