@@ -18,4 +18,7 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: REGFORMAT_KATAKANA, message: MESSAGE_INVALID_KATAKANA }
   validates :last_name_kana, presence: true, format: { with: REGFORMAT_KATAKANA, message: MESSAGE_INVALID_KATAKANA }
   validates :birthday, presence: true
+
+  has_many :items
+  has_many :purchases
 end
