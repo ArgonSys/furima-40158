@@ -56,6 +56,11 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "faker"
   gem "gimei", "~> 1.2"
+  gem "capistrano"
+  gem "capistrano-rbenv"
+  gem "capistrano-bundler"
+  gem "capistrano-rails"
+  gem "capistrano-unicorn"
 end
 
 group :development do
